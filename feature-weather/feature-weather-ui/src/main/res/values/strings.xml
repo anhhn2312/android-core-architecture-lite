@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Region WeatherActivity-->
+    <string name="now">Now</string>
+    <string name="hourly">Hourly</string>
+    <string name="daily">Daily</string>
+    <string name="detecting_location">Detecting location</string>
+    <string name="grant_location_permission_message">%s needs location permission to get weather information.</string>
+    <string name="location_permission_denied_forever_message">Please allow location permission in Settings</string>
+    <string name="allow">Allow</string>
+    <string name="settings">Settings</string>
+    <!--    End region WeatherActivity-->
+
+    <!--    Region Current Weather-->
+    <string name="current_temperature">%d°C</string>
+    <string name="feels_like">Feels like: %d°C</string>
+    <string name="last_updated">Last updated: %s</string>
+    <string name="humidity">Humidity</string>
+    <string name="cloud">Cloud</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="visibility">Visibility</string>
+    <string name="uv">UV</string>
+    <string name="air_quality">Air Quality</string>
+    <string name="air_quality_1">Good</string>
+    <string name="air_quality_2">Moderate</string>
+    <string name="air_quality_3">Unhealthy for sensitive group</string>
+    <string name="air_quality_4">Unhealthy</string>
+    <string name="air_quality_5">Very unhealthy</string>
+    <string name="air_quality_6">Hazardous</string>
+    <string name="air_quality_na">Not available</string>
+    <!--    End region Current Weather-->
+
+    <!--    Region Hourly Forecast-->
+    <string name="feels_like_hourly">Feels like\n%d°C</string>
+    <!--    End region Hourly Forecast-->
+
+    <!--    Region Location History-->
+    <string name="locations">Locations</string>
+    <string name="current_location">Current location</string>
+    <string name="recent">Recent</string>
+</resources>

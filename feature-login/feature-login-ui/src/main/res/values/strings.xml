@@ -1,0 +1,10 @@
+<resources>
+    <string name="welcome">Welcome to Core Architecture Lite</string>
+    <string name="username_title">Username</string>
+    <string name="username_hint">Enter a random name</string>
+    <string name="password_title">Password</string>
+    <string name="password_hint">And a random password too</string>
+    <string name="just_login">Just login!</string>
+    <string name="message_username_empty">Username cannot be empty</string>
+    <string name="message_password_empty">Password cannot be empty</string>
+</resources>

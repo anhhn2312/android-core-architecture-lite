@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.andyha.coreui.base.ui.widget.ThemeRxLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FullItemNoRippleBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dimen16dp">
+
+    <com.andyha.coreui.base.ui.widget.ThemeRxImageView
+        android:id="@+id/icon"
+        style="@style/IconTintPrimary"
+        android:layout_width="@dimen/dimen24dp"
+        android:layout_height="@dimen/dimen24dp"
+        tools:src="@drawable/ic_humidity" />
+
+    <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+        android:id="@+id/tvContent"
+        style="@style/FontSemiBold.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen8dp"
+        android:gravity="center"
+        android:lines="2"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintStart_toEndOf="@id/tvTemperature"
+        app:layout_constraintTop_toTopOf="@id/tvTemperature"
+        tools:text="60%" />
+
+    <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+        android:id="@+id/tvTitle"
+        style="@style/FontRegular.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_14"
+        app:layout_constraintStart_toEndOf="@id/tvTemperature"
+        app:layout_constraintTop_toTopOf="@id/tvTemperature"
+        tools:text="@string/humidity" />
+
+</com.andyha.coreui.base.ui.widget.ThemeRxLinearLayout>

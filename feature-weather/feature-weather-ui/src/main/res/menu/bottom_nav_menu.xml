@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/today_navigation"
+        android:icon="@drawable/ic_live"
+        android:title="@string/now" />
+
+    <item
+        android:id="@+id/hourly_navigation"
+        android:icon="@drawable/ic_hour"
+        android:title="@string/hourly" />
+
+    <item
+        android:id="@+id/daily_navigation"
+        android:icon="@drawable/ic_daily"
+        android:title="@string/daily" />
+</menu>

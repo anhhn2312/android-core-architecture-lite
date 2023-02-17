@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.andyha.featureweatherkit.data.model.DailyForecast" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dailyForecast"
+            type="DailyForecast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:foreground="?selectableItemBackgroundBorderless">
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvWeekDay"
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen16dp"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:weekDay="@{dailyForecast.timeStamp}"
+            tools:text="Fri" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvDate"
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen16dp"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_14"
+            app:date="@{dailyForecast.timeStamp}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWeekDay"
+            tools:text="18" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCondition"
+            android:layout_width="@dimen/dimen24dp"
+            android:layout_height="@dimen/dimen24dp"
+            android:layout_marginHorizontal="@dimen/dimen16dp"
+            android:layout_marginTop="@dimen/dimen16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            app:url="@{dailyForecast.icon}"
+            tools:src="@drawable/ic_cloud" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTempRange"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen24dp"
+            android:layout_marginBottom="@dimen/dimen24dp"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCondition">
+
+            <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                android:id="@+id/tvMaxTemp"
+                style="@style/FontSemiBold.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen16dp"
+                android:text="@{@string/current_temperature(dailyForecast.maxTemp)}"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:text="35°C" />
+
+            <com.andyha.coreui.base.ui.widget.ThemeRxView
+                android:id="@+id/temperatureBar"
+                android:layout_width="@dimen/dimen24dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/dimen16dp"
+                android:layout_marginVertical="@dimen/dimen16dp"
+                android:background="@drawable/bg_temperature_range"
+                app:layout_constraintBottom_toTopOf="@id/tvMinTemp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMaxTemp" />
+
+            <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                android:id="@+id/tvMinTemp"
+                style="@style/FontSemiBold.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/current_temperature(dailyForecast.minTemp)}"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1"
+                tools:text="25°C" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.andyha.coreui.base.ui.widget.ThemeRxView
+            android:id="@+id/divider"
+            style="@style/Divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/dimen8dp"
+            android:layout_marginBottom="@dimen/dimen16dp"
+            android:minWidth="60dp"
+            app:layout_constraintBottom_toTopOf="@id/tvChanceOfRain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:background="?colorDivider" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvChanceOfRain"
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen2dp"
+            android:drawableStart="@drawable/ic_rainy_16"
+            android:drawablePadding="@dimen/dimen2dp"
+            android:gravity="end|center_vertical"
+            android:lines="1"
+            android:text='@{dailyForecast.chanceOfRain + "%"}'
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toTopOf="@id/tvPrecipitation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="50%" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvPrecipitation"
+            style="@style/FontRegular.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:lines="1"
+            android:text='@{dailyForecast.precipitation + "mm"}'
+            android:textSize="@dimen/text_size_12"
+            android:visibility="@{dailyForecast.precipitation > 0 ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="10mm" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

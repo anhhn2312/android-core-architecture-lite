@@ -1,0 +1,10 @@
+<resources>
+    <string name="welcome">Chào mừng đến với Core Architecture Lite</string>
+    <string name="username_title">Tên người dùng</string>
+    <string name="username_hint">Nhập một tên bất kì</string>
+    <string name="password_title">Mật khẩu</string>
+    <string name="password_hint">Và một mật khẩu ngẫu nhiên</string>
+    <string name="just_login">Đăng nhập thôi!</string>
+    <string name="message_username_empty">Tên người dùng không được bỏ trống</string>
+    <string name="message_password_empty">Mật khẩu không được bỏ trống</string>
+</resources>

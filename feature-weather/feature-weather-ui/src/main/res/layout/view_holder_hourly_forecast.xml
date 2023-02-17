@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.andyha.featureweatherkit.data.model.HourlyForecast" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="hourlyForecast"
+            type="HourlyForecast" />
+    </data>
+
+    <com.andyha.coreui.base.ui.widget.ThemeRxLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen12dp"
+            android:gravity="center_vertical">
+
+            <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                android:id="@+id/tvHour"
+                style="@style/FontRegular.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="60dp"
+                android:textSize="@dimen/text_size_14"
+                app:hour="@{hourlyForecast.timeStamp}"
+                tools:text="16:00" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCondition"
+                android:layout_width="@dimen/dimen24dp"
+                android:layout_height="@dimen/dimen24dp"
+                android:layout_marginStart="@dimen/dimen10dp"
+                app:url="@{hourlyForecast.icon}"
+                tools:src="@drawable/ic_cloud" />
+
+            <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                android:id="@+id/tvTemperature"
+                style="@style/FontSemiBold.Primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen8dp"
+                android:gravity="center"
+                android:minWidth="@dimen/dimen52dp"
+                android:text="@{@string/current_temperature(hourlyForecast.temperature)}"
+                android:textSize="@dimen/text_size_18"
+                tools:text="30°C" />
+
+            <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                android:id="@+id/tvFeelsLike"
+                style="@style/FontRegular.Primary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{@string/feels_like_hourly(hourlyForecast.feelsLike)}"
+                android:textSize="@dimen/text_size_12"
+                tools:text="Feels like 38°C" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center_vertical"
+                android:orientation="vertical">
+
+                <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                    android:id="@+id/tvChanceOfRain"
+                    style="@style/FontRegular.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_rainy_16"
+                    android:drawablePadding="@dimen/dimen2dp"
+                    android:gravity="end|center_vertical"
+                    android:lines="1"
+                    android:text='@{hourlyForecast.chanceOfRain + "%"}'
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="50%" />
+
+                <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                    android:id="@+id/tvPrecipitation"
+                    style="@style/FontRegular.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:lines="1"
+                    android:text='@{hourlyForecast.precipitation + "mm"}'
+                    android:textSize="@dimen/text_size_12"
+                    android:visibility="@{hourlyForecast.precipitation > 0 ? View.VISIBLE : View.GONE}"
+                    tools:text="10mm" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.andyha.coreui.base.ui.widget.ThemeRxView
+            android:id="@+id/divider"
+            style="@style/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen1dp" />
+
+    </com.andyha.coreui.base.ui.widget.ThemeRxLinearLayout>
+</layout>

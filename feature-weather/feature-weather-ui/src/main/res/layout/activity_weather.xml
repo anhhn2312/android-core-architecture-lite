@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <com.andyha.coreui.base.ui.widget.SimpleImageView
+        android:id="@+id/behindFakeThemeImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:paddingStart="@dimen/dimen8dp"
+            android:paddingEnd="@dimen/dimen16dp">
+
+            <com.andyha.coreui.base.ui.widget.ThemeRxRelativeLayout
+                android:id="@+id/rlLocation"
+                style="@style/RoundRectRippleBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen16dp"
+                android:layout_toStartOf="@id/ivLanguage"
+                android:padding="@dimen/dimen8dp">
+
+                <com.andyha.coreui.base.ui.widget.ThemeRxImageView
+                    android:id="@+id/ivDropdown"
+                    style="@style/IconTintPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_drop_down" />
+
+                <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                    android:id="@+id/tvLocation"
+                    style="@style/FontBold.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen8dp"
+                    android:layout_toEndOf="@id/ivDropdown"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size_20"
+                    tools:text="Long Bien, Hanoi" />
+
+                <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+                    android:id="@+id/tvCountry"
+                    style="@style/FontSemiBold.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvLocation"
+                    android:layout_alignStart="@id/tvLocation"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="Vietnam" />
+            </com.andyha.coreui.base.ui.widget.ThemeRxRelativeLayout>
+
+            <ImageView
+                android:id="@+id/ivLanguage"
+                android:layout_width="@dimen/dimen32dp"
+                android:layout_height="@dimen/dimen32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen8dp"
+                android:layout_toStartOf="@id/ivTheme"
+                android:background="?attr/defaultBorderlessRippleBackground"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_language_flag" />
+
+            <com.andyha.coreui.base.ui.widget.ThemeRxImageView
+                android:id="@+id/ivTheme"
+                android:layout_width="@dimen/dimen32dp"
+                android:layout_height="@dimen/dimen32dp"
+                android:layout_marginEnd="@dimen/dimen8dp"
+                android:layout_toStartOf="@id/ivLogout"
+                android:layout_centerVertical="true"
+                android:background="?attr/defaultBorderlessRippleBackground"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_theme_light" />
+
+            <com.andyha.coreui.base.ui.widget.ThemeRxImageView
+                android:id="@+id/ivLogout"
+                android:layout_width="@dimen/dimen32dp"
+                android:layout_height="@dimen/dimen32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/defaultBorderlessRippleBackground"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_logout" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.andyha.coreui.base.ui.widget.ThemeRxView
+            style="@style/Divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <com.andyha.featureweatherui.ui.widget.WeatherBottomNavView
+            android:id="@+id/navView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?windowBackgroundVariant"
+            app:itemIconTint="@color/color_bottom_nav_text"
+            app:itemTextAppearanceActive="@style/BottomNavigation.ActiveItemTextAppearance"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView"
+            app:itemTextColor="@color/color_bottom_nav_text"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
+    </LinearLayout>
+</FrameLayout>

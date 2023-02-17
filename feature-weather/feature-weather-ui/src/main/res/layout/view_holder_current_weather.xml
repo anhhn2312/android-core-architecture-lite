@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.andyha.featureweatherkit.data.model.Weather" />
+
+        <variable
+            name="weather"
+            type="Weather" />
+    </data>
+
+    <com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/FullItemNoRippleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="120dp"
+        android:padding="@dimen/dimen20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvTemperature"
+            style="@style/FontBold.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/dimen16dp"
+            android:text="@{@string/current_temperature(weather.temperature)}"
+            android:textSize="@dimen/text_size_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="35°C" />
+
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvFeelsLike"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:text="@{@string/feels_like(weather.feelLike)}"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTemperature"
+            tools:text="Feels like: 40°C" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen4dp"
+            android:textSize="@dimen/text_size_14"
+            app:lastUpdated="@{weather.lastUpdated}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFeelsLike"
+            tools:text="17:50" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvCondition"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:lines="1"
+            android:text="@{weather.condition}"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintBottom_toBottomOf="@id/tvTemperature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvTemperature"
+            app:layout_constraintTop_toTopOf="@id/tvTemperature" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/dimen64dp"
+            android:layout_height="@dimen/dimen64dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCondition"
+            app:url="@{weather.icon}"
+            tools:src="@drawable/ic_cloud" />
+
+    </com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout>
+</layout>

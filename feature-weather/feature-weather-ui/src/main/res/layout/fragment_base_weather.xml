@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.andyha.coreui.base.ui.widget.ThemeRxRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.andyha.coreui.base.ui.widget.NoInternetBanner
+        android:id="@+id/noInternetBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <com.andyha.coreui.base.ui.widget.BaseToolbar
+        android:id="@+id/baseHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/noInternetBanner"
+        android:background="@android:color/transparent"
+        app:contentInsetStartWithNavigation="0dp"
+        app:title="@null" />
+
+    <com.andyha.coreui.base.ui.widget.refresh.BaseSwipeRefreshLayout
+        android:id="@+id/base_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/noInternetBanner">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/base_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/llPermissionSetting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/dimen24dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location_48" />
+
+                <com.andyha.coreui.base.ui.widget.textview.BaseTextView
+                    android:id="@+id/tvMessage"
+                    style="@style/FontRegular.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen16dp"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="35°C" />
+
+                <com.andyha.coreui.base.ui.widget.textview.BaseTextView
+                    android:id="@+id/btnAction"
+                    style="@style/CommonButton.Primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen16dp"
+                    android:enabled="true" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </com.andyha.coreui.base.ui.widget.refresh.BaseSwipeRefreshLayout>
+
+</com.andyha.coreui.base.ui.widget.ThemeRxRelativeLayout>

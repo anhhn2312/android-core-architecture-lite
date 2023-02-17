@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.andyha.coreui.base.ui.widget.SimpleImageView
+        android:id="@+id/behindFakeThemeImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout
+        android:id="@+id/content"
+        style="@style/AppBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvUsernameTitle"
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username_title"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toTopOf="@id/etUsername"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.andyha.coreui.base.ui.widget.edittext.ThemeRxEditText
+            android:id="@+id/etUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen32dp"
+            android:layout_marginEnd="@dimen/dimen32dp"
+            android:backgroundTint="@color/color_edittext_background_tint"
+            android:hint="@string/username_hint"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toTopOf="@id/tvPasswordTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUsernameTitle" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvPasswordTitle"
+            style="@style/FontRegular.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen24dp"
+            android:text="@string/password_title"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toBottomOf="@id/etUsername" />
+
+        <com.andyha.coreui.base.ui.widget.edittext.ThemeRxEditText
+            android:id="@+id/etPassword"
+            style="@style/FontRegular.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_hint"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:nextFocusDown="@id/etPassword"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
+            app:layout_constraintEnd_toEndOf="@id/etUsername"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toBottomOf="@id/tvPasswordTitle" />
+
+        <com.andyha.coreui.base.ui.widget.transitionbutton.TransitionButton
+            android:id="@+id/btnLogin"
+            style="@style/CommonButton.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen24dp"
+            android:enabled="true"
+            android:minHeight="@dimen/dimen44dp"
+            android:text="@string/just_login"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toTopOf="@id/ivLanguage"
+            app:layout_constraintEnd_toEndOf="@id/etPassword"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLanguage"
+            android:layout_width="@dimen/dimen32dp"
+            android:layout_height="@dimen/dimen32dp"
+            android:layout_marginTop="@dimen/dimen24dp"
+            android:layout_marginEnd="@dimen/dimen8dp"
+            android:background="?attr/defaultBorderlessRippleBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_language_flag"
+            app:layout_constraintBottom_toTopOf="@id/tvAppName"
+            app:layout_constraintEnd_toStartOf="@id/ivTheme"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+        <com.andyha.coreui.base.ui.widget.ThemeRxImageView
+            android:id="@+id/ivTheme"
+            android:layout_width="@dimen/dimen32dp"
+            android:layout_height="@dimen/dimen32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/defaultBorderlessRippleBackground"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_theme_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLanguage"
+            app:layout_constraintTop_toTopOf="@id/ivLanguage" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvAppName"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen24dp"
+            android:text="@string/welcome"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout>
+</FrameLayout>

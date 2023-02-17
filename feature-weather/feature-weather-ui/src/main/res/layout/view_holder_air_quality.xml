@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.andyha.featureweatherkit.data.model.Weather" />
+
+        <variable
+            name="weather"
+            type="Weather" />
+    </data>
+
+    <com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/FullItemNoRippleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen24dp">
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvAirQualityTitle"
+            style="@style/FontRegular.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/dimen8dp"
+            android:text="@string/air_quality"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivAirQuality"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivAirQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen60dp"
+            android:scaleType="centerInside"
+            app:airQualityImage="@{weather.airQuality}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="@dimen/dimen60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="@dimen/dimen120dp"
+            tools:src="@drawable/ic_aqi_1" />
+
+        <com.andyha.coreui.base.ui.widget.textview.ThemeRxTextView
+            android:id="@+id/tvAirQualityDescription"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen8dp"
+            android:textSize="@dimen/text_size_16"
+            app:airQualityDescription="@{weather.airQuality}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAirQuality"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/air_quality" />
+
+    </com.andyha.coreui.base.ui.widget.ThemeRxConstraintLayout>
+</layout>

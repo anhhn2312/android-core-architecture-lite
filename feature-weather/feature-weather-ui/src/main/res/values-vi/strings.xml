@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Region WeatherActivity-->
+    <string name="now">Hiện Tại</string>
+    <string name="hourly">Hằng Giờ</string>
+    <string name="daily">Hằng Ngày</string>
+    <string name="detecting_location">Đang xác định vị trí</string>
+    <string name="grant_location_permission_message">%s cần truy cập vào vị trí của bạn để cung cấp thông tin thời tiết.</string>
+    <string name="location_permission_denied_forever_message">Xin hãy cấp quyền vị trí trong Cài Đặt</string>
+    <string name="allow">Cho phép</string>
+    <string name="settings">Cài đặt</string>
+    <!--    End region WeatherActivity-->
+
+    <!--    Region Current Weather-->
+    <string name="current_temperature">%d°C</string>
+    <string name="feels_like">Cảm giác như: %d°C</string>
+    <string name="last_updated">Cập nhật gần nhất: %s</string>
+    <string name="humidity">Độ ẩm</string>
+    <string name="cloud">Mây</string>
+    <string name="wind">Gió</string>
+    <string name="pressure">Áp suất</string>
+    <string name="visibility">Tầm nhìn</string>
+    <string name="uv">Tia UV</string>
+    <string name="air_quality">Không khí</string>
+    <string name="air_quality_1">Tốt</string>
+    <string name="air_quality_2">Bình thường</string>
+    <string name="air_quality_3">Không tốt cho người nhạy cảm</string>
+    <string name="air_quality_4">Không tốt</string>
+    <string name="air_quality_5">Rất không tốt</string>
+    <string name="air_quality_6">Rất có hại</string>
+    <string name="air_quality_na">Không có dữ liệu</string>
+    <!--    End region Current Weather-->
+
+    <!--    Region Hourly Forecast-->
+    <string name="feels_like_hourly">Cảm giác như\n%d°C</string>
+    <!--    End region Hourly Forecast-->
+
+    <!--    Region Location History-->
+    <string name="locations">Vị trí</string>
+    <string name="current_location">Vị trí hiện tại</string>
+    <string name="recent">Gần đây</string>
+</resources>

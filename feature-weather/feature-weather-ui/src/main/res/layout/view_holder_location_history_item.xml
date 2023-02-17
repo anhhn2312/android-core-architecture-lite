@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.andyha.featureweatherkit.data.model.LocationState.LocationDetected" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="location"
+            type="LocationDetected" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?defaultBorderlessRippleBackground">
+
+        <com.andyha.coreui.base.ui.widget.textview.BaseTextView
+            android:id="@+id/tvLocation"
+            style="@style/FontBold.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen16dp"
+            android:layout_marginTop="@dimen/dimen8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{location.address}"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Long Bien, Hanoi" />
+
+        <com.andyha.coreui.base.ui.widget.textview.BaseTextView
+            android:id="@+id/tvCountry"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLocation"
+            android:layout_alignStart="@id/tvLocation"
+            android:layout_marginBottom="@dimen/dimen8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{location.region}"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivCondition"
+            app:layout_constraintStart_toStartOf="@id/tvLocation"
+            app:layout_constraintTop_toBottomOf="@id/tvLocation"
+            tools:text="Vietnam" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCondition"
+            android:layout_width="@dimen/dimen24dp"
+            android:layout_height="@dimen/dimen24dp"
+            android:layout_marginEnd="@dimen/dimen24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTemperature"
+            app:layout_constraintTop_toTopOf="parent"
+            app:url="@{location.icon}"
+            tools:src="@drawable/ic_cloud" />
+
+        <com.andyha.coreui.base.ui.widget.textview.BaseTextView
+            android:id="@+id/tvTemperature"
+            style="@style/FontSemiBold.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen16dp"
+            android:gravity="center"
+            android:minWidth="@dimen/dimen52dp"
+            android:text="@{@string/current_temperature(location.temperature)}"
+            android:textSize="@dimen/text_size_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="30°C" />
+
+        <View
+            android:id="@+id/viewSelected"
+            android:layout_width="@dimen/dimen8dp"
+            android:layout_height="@dimen/dimen0dp"
+            android:background="@drawable/bg_selected_location"
+            android:visibility="@{location.isSelected == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
